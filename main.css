@@ -1,0 +1,19 @@
+.card-title {
+  background-color: lightgray;
+  text-align: center}
+
+.card{ 
+  border: solid 1px grey    
+  }
+
+.petImage {
+ align-items: center; 
+}
+
+.color{
+  text-align: center;}
+
+.animal{
+  text-align: center;
+  background-color: lightgreen;
+}

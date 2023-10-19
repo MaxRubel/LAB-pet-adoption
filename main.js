@@ -242,24 +242,58 @@ const pets = [
   ];
 
 
-let domString="";
+const renderToDom = (array) => {
+    let domString="";
+    for (pet of array){
+      domString +=  `
+      <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">${pet.name}</h5>
+        <h6 ckass="petImage"><img src="${pet.imageUrl}" width="245" height="150" align="center" ></h6>
+        <p class="color">${pet.color}</p>
+        <p class="card-text">${pet.specialSkill}</p>
+        <p class="animal">${pet.type}</p>
+      </div>
+    </div>
+    `
+    const app = document.querySelector("#app");
+    app.innerHTML = 
+  `<container class="array">` + 
+    domString +
+   `</container>`
+    }
+  }
 
-for (pet of pets){
-  domString +=   `<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${pet.name}</h5>
-    <h6 ckass="petImage"><img src=${pet.imageUrl}</h6>
-    <p class="color">${pet.color}</p>
-    <p class="card-text">${pet.specialSkill}</p>
-    <p class="animal">${pet.type}</p>
-  </div>
-</div>`;
+const showAll = () =>{
+  renderToDom(pets);
 }
-let app = document.querySelector("#app")
-app.innerHTML = domString;
 
-console.log(app.value);
+showAll()
+
+const dogButton = document.querySelector("#dogs")
+const catButton = document.querySelector("#cats")
+const dinoButton= document.querySelector("#dinos")
+const showAllButton= document.querySelector("#showAll")
+
+dogButton.addEventListener('click', ()=>{
+  filter("dog")
+})
+catButton.addEventListener('click', ()=>{
+  filter("cat")
+})
+dinoButton.addEventListener('click', ()=>{
+  filter("dino")})
+showAllButton.addEventListener('click', showAll)
+
+const filter = (type) => {
+  let newPetArray=[]
+  for (pet of pets){
+    if(pet.type === type){
+    newPetArray.push(pet);  
+    }
+}
+  renderToDom(newPetArray)
+}
 
 
 

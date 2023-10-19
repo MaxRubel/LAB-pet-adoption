@@ -1,9 +1,31 @@
+body{
+  display: grid;
+  grid-template-columns: auto;
+
+}
+
+.buttonHeader{
+  position: center;
+  width: 400px;
+  margin: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 400
+
+}
 .card-title {
   background-color: lightgray;
-  text-align: center}
+  text-align: center;}
+
+.card-text{ 
+    text-align: center;
+    height: 80px ;
+  }
 
 .card{ 
-  border: solid 1px grey    
+  border: solid 1px grey;
+  width: 20px;
+  margin: 10px;
   }
 
 .petImage {
@@ -15,5 +37,13 @@
 
 .animal{
   text-align: center;
-  background-color: lightgreen;
+  background-color: lightblue;
+  text-transform:capitalize;
+}
+
+.array{
+  display: flex;
+  /* grid-template-columns: repeat(3,1fr); */
+  flex-wrap: wrap;
+  margin:auto;
 }

@@ -10,9 +10,9 @@ body{
   margin: 20px;
   margin-right: auto;
   margin-left: auto;
-  height: 400
-
+  height: 400;
 }
+
 .card-title {
   background-color: lightgray;
   text-align: center;}
@@ -26,14 +26,15 @@ body{
   border: solid 1px grey;
   width: 20px;
   margin: 10px;
-  }
+}
 
 .petImage {
  align-items: center; 
 }
 
 .color{
-  text-align: center;}
+  text-align: center;
+}
 
 .animal{
   text-align: center;

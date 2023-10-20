@@ -278,11 +278,14 @@ const showAllButton= document.querySelector("#showAll")
 dogButton.addEventListener('click', ()=>{
   filter("dog")
 })
+
 catButton.addEventListener('click', ()=>{
   filter("cat")
 })
+
 dinoButton.addEventListener('click', ()=>{
   filter("dino")})
+  
 showAllButton.addEventListener('click', showAll)
 
 const filter = (type) => {
@@ -294,7 +297,3 @@ const filter = (type) => {
 }
   renderToDom(newPetArray)
 }
-
-
-
-  

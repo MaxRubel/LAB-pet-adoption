@@ -253,19 +253,17 @@ const renderToDom = (array) => {
         <p class="color">${pet.color}</p>
         <p class="card-text">${pet.specialSkill}</p>
         <p class="animal">${pet.type}</p>
+        <p align="center"><button type="button" class="btn btn-danger" id="delete--${pet.id}">Delete</button></p>
       </div>
     </div>
     `
     const app = document.querySelector("#app");
-    app.innerHTML = 
-  `<container class="array">` + 
-    domString +
-   `</container>`
+    app.innerHTML = domString 
     }
   }
 
-const showAll = () =>{
-  renderToDom(pets);
+  const showAll = () =>{
+    renderToDom(pets);
 }
 
 showAll()
@@ -278,18 +276,17 @@ const showAllButton= document.querySelector("#showAll")
 dogButton.addEventListener('click', ()=>{
   filter("dog")
 })
-
 catButton.addEventListener('click', ()=>{
   filter("cat")
 })
-
 dinoButton.addEventListener('click', ()=>{
-  filter("dino")})
+  filter("dino")
+})
   
 showAllButton.addEventListener('click', showAll)
 
 const filter = (type) => {
-  let newPetArray=[]
+  let newPetArray=[];
   for (pet of pets){
     if(pet.type === type){
     newPetArray.push(pet);  
@@ -297,3 +294,33 @@ const filter = (type) => {
 }
   renderToDom(newPetArray)
 }
+
+const form = document.querySelector('form');
+
+const addPet = (event)=> {
+  event.preventDefault()
+  const newPetObj={
+    id:pets.length + 1,
+    name: document.querySelector("#name").value,
+    color: document.querySelector("#color").value,
+    specialSkill: document.querySelector("#description").value,
+    type: document.querySelector("#type").value,}
+
+  pets.push(newPetObj);
+  renderToDom(pets)
+  form.reset()
+}
+
+const deletePet = (event) => {
+  if (event.target.id.includes("delete")){
+    const [, id] = event.target.id.split("--");
+    console.log([,id]);
+    const index = pets.findIndex(obj=>obj.id===Number(id));
+    pets.splice(index, 1);
+    console.log(pets.length);
+    renderToDom(pets);
+  }
+}
+
+form.addEventListener('submit', addPet);
+app.addEventListener('click', deletePet);

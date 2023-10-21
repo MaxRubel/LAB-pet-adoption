@@ -42,9 +42,15 @@ body{
   text-transform:capitalize;
 }
 
-.array{
+#app{
   display: flex;
   /* grid-template-columns: repeat(3,1fr); */
   flex-wrap: wrap;
   margin:auto;
+}
+
+#addPet{
+  margin: 30px;
+  border: solid 1px black;
+  align-self: center;
 }

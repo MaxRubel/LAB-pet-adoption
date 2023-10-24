@@ -54,3 +54,17 @@ body{
   border: solid 1px black;
   align-self: center;
 }
+
+#addPet{
+  height: 500px;
+  width: 500px ;
+}
+
+.radioButtons{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-check{
+  margin: 5px;
+}

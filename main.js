@@ -304,7 +304,8 @@ const addPet = (event)=> {
     name: document.querySelector("#name").value,
     color: document.querySelector("#color").value,
     specialSkill: document.querySelector("#description").value,
-    type: document.querySelector("#type").value,}
+    type: document.querySelector('input[name="flexRadioDefault"]:checked').value
+  }
 
   pets.push(newPetObj);
   renderToDom(pets)

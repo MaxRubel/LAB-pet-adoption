@@ -1,0 +1,70 @@
+body{
+    display: grid;
+    grid-template-columns: auto;
+  
+  }
+  
+  .buttonHeader{
+    position: center;
+    width: 400px;
+    margin: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 400;
+  }
+  
+  .card-title {
+    background-color: lightgray;
+    text-align: center;}
+  
+  .card-text{ 
+      text-align: center;
+      height: 80px ;
+    }
+  
+  .card{ 
+    border: solid 1px grey;
+    width: 20px;
+    margin: 10px;
+  }
+  
+  .petImage {
+   align-items: center; 
+  }
+  
+  .color{
+    text-align: center;
+  }
+  
+  .animal{
+    text-align: center;
+    background-color: lightblue;
+    text-transform:capitalize;
+  }
+  
+  #app{
+    display: flex;
+    /* grid-template-columns: repeat(3,1fr); */
+    flex-wrap: wrap;
+    margin:auto;
+  }
+  
+  #addPet{
+    margin: 30px;
+    border: solid 1px black;
+    align-self: center;
+  }
+  
+  #addPet{
+    height: 500px;
+    width: 500px ;
+  }
+  
+  .radioButtons{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .form-check{
+    margin: 5px;
+  }

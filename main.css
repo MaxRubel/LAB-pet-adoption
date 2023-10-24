@@ -50,21 +50,23 @@ body{
 }
 
 #addPet{
+  height: 300px;
+  width: 400px ;
   margin: 30px;
   border: solid 1px black;
-  align-self: center;
-}
-
-#addPet{
-  height: 500px;
-  width: 500px ;
 }
 
 .radioButtons{
   display: flex;
   flex-wrap: wrap;
+  margin: 0;
 }
 
 .form-check{
   margin: 5px;
+}
+
+.form-floating{
+  margin: 0;
+
 }

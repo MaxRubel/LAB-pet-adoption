@@ -252,7 +252,7 @@ const renderToDom = (array) => {
       <h6 ckass="petImage"><img src="${pet.imageUrl}" width="245" height="150" align="center" ></h6>
       <p class="color">${pet.color}</p>
       <p class="card-text">${pet.specialSkill}</p>
-      <p class="animal">${pet.type}</p>
+      <p class="${pet.type}">${pet.type}</p>
       <p align="center"><button type="button" class="btn btn-danger" id="delete--${pet.id}">Delete</button></p>
     </div>
   </div>
@@ -262,66 +262,61 @@ const renderToDom = (array) => {
   }
 }
 
-const showAll = () =>{
+events=()=>{
+  const dogButton = document.querySelector("#dogs")
+  const catButton = document.querySelector("#cats")
+  const dinoButton= document.querySelector("#dinos")
+  const showAllButton= document.querySelector("#showAll")
+  const form = document.querySelector('form');
+  showAllButton.addEventListener('click', ()=>{renderToDom(pets)})
+  form.addEventListener('submit', (event)=> {
+    event.preventDefault();
+    const newPetObj={
+      id:pets.length + 1,
+      name: document.querySelector("#name").value,
+      color: document.querySelector("#color").value,
+      specialSkill: document.querySelector("#description").value,
+      type: document.querySelector('input[name="flexRadioDefault"]:checked').value}
+    pets.push(newPetObj);
+    renderToDom(pets)
+    form.reset()
+    });
+  
+    app.addEventListener('click', (event) => {
+    if (event.target.id.includes("delete")){
+      const [, id] = event.target.id.split("--");
+      console.log([,id]);
+      const index = pets.findIndex(obj=>obj.id===Number(id));
+      pets.splice(index, 1);
+      console.log(pets.length);
+      renderToDom(pets);
+    }
+    });
+  
+    const filter = (type) => {
+    let newPetArray=[];
+    for (pet of pets){
+      if(pet.type === type){
+      newPetArray.push(pet);  
+      }
+    }
+    renderToDom(newPetArray)
+    }
+
+  dogButton.addEventListener('click', ()=>{
+    filter("dog")
+    })
+  catButton.addEventListener('click', ()=>{
+    filter("cat")
+    })
+  dinoButton.addEventListener('click', ()=>{
+    filter("dino")
+    })
+}
+
+startApp=()=>{
   renderToDom(pets);
+  events()
 }
 
-showAll()
-
-const dogButton = document.querySelector("#dogs")
-const catButton = document.querySelector("#cats")
-const dinoButton= document.querySelector("#dinos")
-const showAllButton= document.querySelector("#showAll")
-
-dogButton.addEventListener('click', ()=>{
-filter("dog")
-})
-catButton.addEventListener('click', ()=>{
-filter("cat")
-})
-dinoButton.addEventListener('click', ()=>{
-filter("dino")
-})
-
-showAllButton.addEventListener('click', showAll)
-
-const filter = (type) => {
-let newPetArray=[];
-for (pet of pets){
-  if(pet.type === type){
-  newPetArray.push(pet);  
-  }
-}
-renderToDom(newPetArray)
-}
-
-const form = document.querySelector('form');
-
-const addPet = (event)=> {
-event.preventDefault()
-const newPetObj={
-  id:pets.length + 1,
-  name: document.querySelector("#name").value,
-  color: document.querySelector("#color").value,
-  specialSkill: document.querySelector("#description").value,
-  type: document.querySelector('input[name="flexRadioDefault"]:checked').value
-}
-
-pets.push(newPetObj);
-renderToDom(pets)
-form.reset()
-}
-
-const deletePet = (event) => {
-if (event.target.id.includes("delete")){
-  const [, id] = event.target.id.split("--");
-  console.log([,id]);
-  const index = pets.findIndex(obj=>obj.id===Number(id));
-  pets.splice(index, 1);
-  console.log(pets.length);
-  renderToDom(pets);
-}
-}
-
-form.addEventListener('submit', addPet);
-app.addEventListener('click', deletePet);
+startApp()

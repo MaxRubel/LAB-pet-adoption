@@ -5,27 +5,33 @@ body{
 }
 
 .buttonHeader{
-  position: center;
+  position: left;
   width: 400px;
-  margin: 20px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 10px;
+  margin-right: 0;
+  margin-left: 10px;
+  margin-top:20px;
   height: 400;
 }
 
 .card-title {
   background-color: lightgray;
-  text-align: center;}
+  text-align: center;
+  height: 25px;
+}
 
 .card-text{ 
     text-align: center;
-    height: 80px ;
-  }
+    height: 80px;
+    padding: 0;
+    margin: 0;
+}
 
 .card{ 
   border: solid 1px grey;
   width: 20px;
   margin: 10px;
+  padding: 0;
 }
 
 .petImage {
@@ -36,15 +42,26 @@ body{
   text-align: center;
 }
 
-.animal{
+.cat{
+  text-align: center;
+  background-color: lightyellow;
+  text-transform:capitalize;
+}
+
+.dog{
   text-align: center;
   background-color: lightblue;
   text-transform:capitalize;
 }
 
+.dino{
+  text-align: center;
+  background-color: lightgreen;
+  text-transform:capitalize;
+}
+
 #app{
   display: flex;
-  /* grid-template-columns: repeat(3,1fr); */
   flex-wrap: wrap;
   margin:auto;
 }
@@ -54,19 +71,21 @@ body{
   width: 400px ;
   margin: 30px;
   border: solid 1px black;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .radioButtons{
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .form-check{
   margin: 5px;
-}
-
-.form-floating{
-  margin: 0;
-
 }
